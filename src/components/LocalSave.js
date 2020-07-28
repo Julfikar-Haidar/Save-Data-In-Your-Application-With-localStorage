@@ -4,12 +4,21 @@ import React, { Component } from 'react';
 class LocalSave extends Component{
 
     setData(){
+        let obj = {name: 'julfikar', age: 25, email: 'julfikar@email.com'}
+        // localStorage.setItem('mydata', 'Something went wrong here')
+        localStorage.setItem('mydata', JSON.stringify(obj))
 
-        localStorage.setItem('mydata', 'Something went wrong here')
+        // session storage
+        sessionStorage.setItem('mySession', JSON.stringify(obj))
     }
     getData(){
         let  data = localStorage.getItem('mydata')
+        data = JSON.parse(data)
         console.log(data)
+         // session storage
+        let val = sessionStorage.getItem('mySession')
+        val = JSON.parse(val)
+        console.log(val)
     }
 
     render(){
